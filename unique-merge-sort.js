@@ -6,18 +6,18 @@ const merge = (leftArray, rightArray) => {
     while (i < leftArray.length && j < rightArray.length) {
         if (leftArray[i] < rightArray[j]) {
             sortedArray.push(leftArray[i]);
-            i++;
+            i += 1;
         } else {
             sortedArray.push(rightArray[j]);
-            j++;
+            j += 1;
         }
     }
 
-    for (; i < leftArray.length; i++) {
+    for (; i < leftArray.length; i += 1) {
         sortedArray.push(leftArray[i]);
     }
 
-    for (; j < rightArray.length; j++) {
+    for (; j < rightArray.length; j += 1) {
         sortedArray.push(rightArray[j]);
     }
 
