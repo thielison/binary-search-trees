@@ -38,7 +38,7 @@ const buildTree = (arr) => {
     return balancedSearchTree;
 };
 
-// console.log the tree in a structured format.
+// console.log the tree in a structured format
 const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
         return;
@@ -55,6 +55,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
     }
 };
 
-const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
-const bstRoot = buildTree(arr);
-prettyPrint(bstRoot);
+export { buildTree, prettyPrint };
