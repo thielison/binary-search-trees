@@ -1,4 +1,4 @@
-import mergeSort from "./merge-sort.js";
+import sortWithoutDuplicates from "./unique-merge-sort.js";
 
 class Node {
     constructor(data) {
@@ -29,14 +29,13 @@ const tree = (arr, start, end) => {
 };
 
 const buildTree = (arr) => {
-    // Sort the input array
-    // mergeSort here will do the same as "arr.sort((a, b) => a - b)"
-    const sortedArray = mergeSort(arr);
+    // Sort the input array and remove duplicates
+    const uniqueSortedArray = sortWithoutDuplicates(arr);
 
-    // Remove duplicates to get a unique, sorted array
-    const uniqueSortedArray = [...new Set(sortedArray)];
+    // Takes an array of data and turns it into a balanced binary tree full of Node objects appropriately placed
+    const balancedSearchTree = tree(uniqueSortedArray, 0, uniqueSortedArray.length - 1);
 
-    return tree(uniqueSortedArray, 0, uniqueSortedArray.length - 1);
+    return balancedSearchTree;
 };
 
 // console.log the tree in a structured format.

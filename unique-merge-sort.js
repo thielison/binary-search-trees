@@ -36,4 +36,15 @@ const mergeSort = (arr) => {
     return merge(left, right);
 };
 
-export default mergeSort;
+const sortWithoutDuplicates = (arr) => {
+    // Sort the input array
+    const sortedArray = mergeSort(arr);
+
+    // Remove duplicates
+    const uniqueSortedArray = [...new Set(sortedArray)];
+
+    // Return a sorted, unique array (without duplicates)
+    return uniqueSortedArray;
+};
+
+export default sortWithoutDuplicates;
