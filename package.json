@@ -1,22 +1,23 @@
 {
-  "name": "binary-search-trees",
-  "version": "1.0.0",
-  "description": "",
-  "main": "binary-search-tree.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thielison/binary-search-trees.git"
-  },
-  "author": "Thiélison",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thielison/binary-search-trees/issues"
-  },
-  "homepage": "https://github.com/thielison/binary-search-trees#readme",
-  "devDependencies": {
+    "name": "binary-search-trees",
+    "version": "1.0.0",
+    "description": "",
+    "main": "binary-search-tree.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thielison/binary-search-trees.git"
+    },
+    "author": "Thiélison",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/thielison/binary-search-trees/issues"
+    },
+    "homepage": "https://github.com/thielison/binary-search-trees#readme",
+    "devDependencies": {
         "eslint": "^8.57.1",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-prettier": "^9.1.0",
