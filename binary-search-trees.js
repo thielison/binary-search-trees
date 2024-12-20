@@ -31,7 +31,7 @@ const tree = (arr, start, end) => {
 const buildTree = (arr) => {
     // Sort the input array
     // mergeSort here will do the same as "arr.sort((a, b) => a - b)"
-    // const sortedArray = mergeSort(arr);
+    const sortedArray = mergeSort(arr);
 
     // Remove duplicates to get a unique, sorted array
     const uniqueSortedArray = [...new Set(sortedArray)];
