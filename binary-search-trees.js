@@ -28,26 +28,6 @@ const tree = (arr, start, end) => {
     return root;
 };
 
-// Utility function to insert a new node with the given value
-const insert = (root, value) => {
-    if (root === null) {
-        return new Node(value);
-    }
-
-    // Duplicates not allowed
-    if (root.data === value) {
-        return root;
-    }
-
-    if (value < root.data) {
-        root.left = insert(root.left, value);
-    } else if (value > root.data) {
-        root.right = insert(root.right, value);
-    }
-
-    return root;
-};
-
 const buildTree = (arr) => {
     // Sort the input array and remove duplicates
     const uniqueSortedArray = sortWithoutDuplicates(arr);
@@ -56,6 +36,33 @@ const buildTree = (arr) => {
     const balancedSearchTree = tree(uniqueSortedArray, 0, uniqueSortedArray.length - 1);
 
     return balancedSearchTree;
+};
+
+// Utility function to insert a new node with the given value into the binary search tree
+const insert = (root, value) => {
+    // Base case: If the root is null, create a new node with the value and return it
+    if (root === null) {
+        return new Node(value);
+    }
+
+    // Prevent insertion of duplicate values into the binary search tree
+    if (root.data === value) {
+        return root; // If the value already exists, do nothing and return the current node
+    }
+
+    // If the value is smaller than the current node's data, recursively insert it into the left subtree
+    // The insertion will occur when the function encounters a null left child (leaf node)
+    if (value < root.data) {
+        root.left = insert(root.left, value);
+    }
+    // If the value is greater than the current node's data, recursively insert it into the right subtree
+    // The insertion will occur when the function encounters a null left child (leaf node)
+    else if (value > root.data) {
+        root.right = insert(root.right, value);
+    }
+
+    // Return the root node after the insertion is complete
+    return root;
 };
 
 export { buildTree, insert };

@@ -6,8 +6,11 @@ const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
 // Turns the test array in a balanced binary tree (BST)
 const balancedSearchTree = buildTree(arr);
+// prettyPrintTree(balancedSearchTree);
 
-// Insert values in the balanced binary tree
+// Insert additional values into the initially balanced BST.
+// These insertions use standard BST logic and do not rebalance the tree,
+// so the structure may become progressively less balanced as you add values.
 insert(balancedSearchTree, 2);
 insert(balancedSearchTree, 6);
 insert(balancedSearchTree, 10);
