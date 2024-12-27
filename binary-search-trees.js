@@ -38,31 +38,31 @@ class Tree {
     }
 
     // Inserts a new node with the given value into the BST.
-    insert(value, node = this.root) {
+    insert(value, currNode = this.root) {
         // If we’ve reached a null spot (no node here), create a new node and return it.
         // This is where the new value gets added to the tree.
-        if (node === null) {
+        if (currNode === null) {
             return new Node(value);
         }
 
         // Prevent inserting duplicates: if this node already holds the value,
         // just return it without adding anything.
-        if (value === node.data) {
-            return node;
+        if (value === currNode.data) {
+            return currNode;
         }
 
         // If the value is smaller, recurse into the left subtree.
-        if (value < node.data) {
-            node.left = this.insert(value, node.left);
+        if (value < currNode.data) {
+            currNode.left = this.insert(value, currNode.left);
         }
         // Otherwise, if the value is larger, recurse into the right subtree.
-        else if (value > node.data) {
-            node.right = this.insert(value, node.right);
+        else if (value > currNode.data) {
+            currNode.right = this.insert(value, currNode.right);
         }
 
         // Finally, return the (possibly unchanged) current node
         // so that it’s properly linked upward in the tree.
-        return node;
+        return currNode;
     }
 }
 
