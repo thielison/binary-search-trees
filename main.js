@@ -1,4 +1,4 @@
-import { Tree } from "./binary-search-trees.js";
+import Tree from "./binary-search-trees.js";
 import prettyPrintTree from "./pretty-print-tree.js";
 
 // Test array
@@ -17,5 +17,11 @@ tree.insert(10);
 tree.insert(11);
 tree.insert(1234);
 
+console.log("***BEFORE DELETION OF A NODE***");
+prettyPrintTree(tree.root);
+
+tree.deleteItem(8);
+
+console.log("***AFTER DELETION OF A NODE***");
 // Print the BST
 prettyPrintTree(tree.root);

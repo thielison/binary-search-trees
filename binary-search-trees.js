@@ -64,6 +64,51 @@ class Tree {
         // so that it’s properly linked upward in the tree.
         return currNode;
     }
+
+    // It mainly works when the right child is not empty, which is  the case we need in BST deleteItem
+    getSuccessor(curr) {
+        curr = curr.right;
+
+        while (curr !== null && curr.left !== null) {
+            curr = curr.left;
+        }
+
+        return curr;
+    }
+
+    deleteItem(value, currNode = this.root) {
+        // Base case
+        if (currNode === null) {
+            return currNode;
+        }
+
+        // If data to be searched is in a subtree
+        if (currNode.data > value) {
+            currNode.left = this.deleteItem(value, currNode.left);
+        } else if (currNode.data < value) {
+            currNode.right = this.deleteItem(value, currNode.right);
+        } else {
+            // If currNode matches with the given value
+
+            // Cases when currNode has 0 children or only right child
+            if (currNode.left === null) {
+                return currNode.right;
+            }
+
+            // When currNode has only left child
+            if (currNode.right === null) {
+                return currNode.left;
+            }
+
+            // When both children are present
+            let succ = this.getSuccessor(currNode);
+
+            currNode.data = succ.data;
+            currNode.right = this.deleteItem(succ.data, currNode.right);
+        }
+
+        return currNode;
+    }
 }
 
-export { Tree };
+export default Tree;
