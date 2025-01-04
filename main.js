@@ -20,8 +20,12 @@ tree.insert(1234);
 console.log("***BEFORE DELETION OF A NODE***");
 prettyPrintTree(tree.root);
 
+// Delete a node from the tree
 tree.deleteItem(8);
 
 console.log("***AFTER DELETION OF A NODE***");
 // Print the BST
 prettyPrintTree(tree.root);
+
+// Find a specific node in the tree
+tree.find(2);

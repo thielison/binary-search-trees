@@ -124,7 +124,29 @@ class Tree {
         return currNode;
     }
 
-    find(value) {}
+    // Find a node with a given value in the tree
+    find(value, currNode = this.root) {
+        // If null node was reached, the value isn't in the tree
+        if (currNode === null) {
+            return null;
+        }
+
+        // If the current node’s data matches the value, we found our node
+        if (value === currNode.data) {
+            console.log(`Node with value ${value} was found:`);
+            console.log(currNode);
+
+            return currNode;
+        }
+
+        // Traverse the BST
+        // If the value is smaller, look in the left subtree, otherwise go right
+        if (value < currNode.data) {
+            return this.find(value, currNode.left);
+        } else {
+            return this.find(value, currNode.right);
+        }
+    }
 }
 
 export default Tree;
