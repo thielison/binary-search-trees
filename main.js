@@ -6,7 +6,10 @@ const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
 // Turns the test array in a balanced binary tree (BST)
 let tree = new Tree(arr);
-// prettyPrintTree(tree.root);
+
+console.log("");
+console.log("***BALANCED BINARY SEARCH TREE***");
+prettyPrintTree(tree.root);
 
 // Insert additional values into the initially balanced BST.
 // These insertions use standard BST logic and do not rebalance the tree,
@@ -17,15 +20,25 @@ tree.insert(10);
 tree.insert(11);
 tree.insert(1234);
 
-console.log("***BEFORE DELETION OF A NODE***");
+console.log("");
+console.log("***INSERTION OF NODES***");
 prettyPrintTree(tree.root);
 
 // Delete a node from the tree
 tree.deleteItem(8);
+tree.deleteItem(1234);
 
-console.log("***AFTER DELETION OF A NODE***");
+console.log("");
+console.log("***DELETION OF A NODE***");
 // Print the BST
 prettyPrintTree(tree.root);
 
+console.log("");
+console.log("***FIND NODE IN THE TREE***");
 // Find a specific node in the tree
 tree.find(2);
+
+console.log("");
+console.log("***PRINT TREE IN LEVEL ORDER (BREADTH-FIRST-SEARCH***)");
+// levelOrder() receives a callback -> (printNodeData()
+tree.levelOrder(tree.printNodeData);

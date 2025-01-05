@@ -147,6 +147,40 @@ class Tree {
             return this.find(value, currNode.right);
         }
     }
+
+    // Traverse the tree in Level Order (Breadth-First Search) using iteration
+    levelOrder(callback) {
+        // If the tree is empty, return null
+        if (!this.root) {
+            return null;
+        }
+
+        // Initialize the queue with the root node
+        const queue = [this.root];
+
+        // Traverse the tree level by level
+        while (queue.length > 0) {
+            // Dequeue the first node in the queue and returns it
+            let currNode = queue.shift();
+
+            // Process the current node using the callback function
+            callback(currNode);
+
+            // Enqueue the left child if it exists
+            if (currNode.left !== null) {
+                queue.push(currNode.left);
+            }
+
+            // Enqueue the right child if it exists
+            if (currNode.right !== null) {
+                queue.push(currNode.right);
+            }
+        }
+    }
+
+    printNodeData(node) {
+        console.log(node.data);
+    }
 }
 
 export default Tree;
