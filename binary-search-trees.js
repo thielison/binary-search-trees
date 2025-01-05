@@ -150,6 +150,11 @@ class Tree {
 
     // Traverse the tree in Level Order (Breadth-First Search) using iteration
     levelOrder(callback) {
+        // Throws error if no callback is passed
+        if (!callback) {
+            throw new Error("A callback function is required!");
+        }
+
         // If the tree is empty, return null
         if (!this.root) {
             return null;
