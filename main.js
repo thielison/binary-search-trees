@@ -39,6 +39,21 @@ console.log("***FIND NODE IN THE TREE***");
 tree.find(2);
 
 console.log("");
-console.log("***PRINT TREE IN LEVEL ORDER (BREADTH-FIRST-SEARCH***)");
+console.log("***PRINT TREE IN LEVEL ORDER (BREADTH-FIRST SEARCH***)");
 // levelOrder() receives a callback -> (printNodeData()
 tree.levelOrder(tree.printNodeData);
+
+console.log("");
+console.log("***PRINT TREE IN PRE ORDER (DEPTH-FIRST SEARCH***)");
+// levelOrder() receives a callback -> (printNodeData()
+tree.preOrder(tree.printNodeData);
+
+console.log("");
+console.log("***PRINT TREE IN ORDER (DEPTH-FIRST SEARCH***)");
+// levelOrder() receives a callback -> (printNodeData()
+tree.inOrder(tree.printNodeData);
+
+console.log("");
+console.log("***PRINT TREE IN POST ORDER (DEPTH-FIRST SEARCH***)");
+// levelOrder() receives a callback -> (printNodeData()
+tree.postOrder(tree.printNodeData);

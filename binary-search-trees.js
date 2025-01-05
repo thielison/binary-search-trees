@@ -148,7 +148,8 @@ class Tree {
         }
     }
 
-    // Traverse the tree in Level Order (Breadth-First Search) using iteration
+    // BREADTH-FIRST SEARCH
+    // Traverse the tree in Level Order using iteration
     levelOrder(callback) {
         // Throws error if no callback is passed
         if (!callback) {
@@ -183,6 +184,72 @@ class Tree {
         }
     }
 
+    // DEPTH-FIRST SEARCH
+    // Traverse the tree in Pre Order, In Order and Post Order
+    preOrder(callback, currNode = this.root) {
+        // Ensure a callback function is provided
+        if (!callback) {
+            throw new Error("A callback function is required!");
+        }
+
+        // Base case: if the current node is null, stop recursion
+        if (currNode === null) {
+            return;
+        }
+
+        // Process the current node
+        callback(currNode);
+
+        // Recur on the left subtree
+        this.preOrder(callback, currNode.left);
+
+        // Recur on the right subtree
+        this.preOrder(callback, currNode.right);
+    }
+
+    inOrder(callback, currNode = this.root) {
+        // Ensure a callback function is provided
+        if (!callback) {
+            throw new Error("A callback function is required!");
+        }
+
+        // Base case: if the current node is null, stop recursion
+        if (currNode === null) {
+            return;
+        }
+
+        // Recur on the left subtree
+        this.inOrder(callback, currNode.left);
+
+        // Process the current node
+        callback(currNode);
+
+        // Recur on the right subtree
+        this.inOrder(callback, currNode.right);
+    }
+
+    postOrder(callback, currNode = this.root) {
+        // Ensure a callback function is provided
+        if (!callback) {
+            throw new Error("A callback function is required!");
+        }
+
+        // Base case: if the current node is null, stop recursion
+        if (currNode === null) {
+            return;
+        }
+
+        // Recur on the left subtree
+        this.postOrder(callback, currNode.left);
+
+        // Recur on the right subtree
+        this.postOrder(callback, currNode.right);
+
+        // Process the current node
+        callback(currNode);
+    }
+
+    // Print node data
     printNodeData(node) {
         console.log(node.data);
     }
