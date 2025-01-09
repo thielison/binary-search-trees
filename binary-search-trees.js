@@ -256,8 +256,8 @@ class Tree {
         console.log(node.data);
     }
 
-    // Returns the given node’s height
-    // Height of a specific node (distance from the node down to the deepest leaf)
+    // Helper function to height(node)
+    // Updates global variable "nodeHeight"
     heightUtil(node, root = this.root) {
         // Base Case
         if (root == null) {
@@ -282,6 +282,8 @@ class Tree {
         return answer;
     }
 
+    // Returns the given node’s height using heightUtil function
+    // Height of a specific node is the distance from the node down to the deepest leaf
     height(node) {
         this.heightUtil(node);
 
