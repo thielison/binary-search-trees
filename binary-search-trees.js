@@ -289,6 +289,30 @@ class Tree {
 
         return nodeHeight;
     }
+
+    // Returns the given node’s depth
+    // Depth is defined as the number of edges in the path from a given node to the tree’s root node
+    depth(node, root = this.root, depth = 0) {
+        if (root === null) {
+            return -1; // Node not found
+        }
+
+        // If the current node's value matches the target, return the current depth
+        if (root.data === node) {
+            return depth; // Found the node, return its depth
+        }
+
+        // Recursively search for the node in the left subtree
+        const leftDepth = this.depth(node, root.left, depth + 1);
+
+        // If the node is found in the left subtree, return its depth
+        if (leftDepth !== -1) {
+            return leftDepth; // Found in left subtree
+        }
+
+        // Otherwise, recursively search for the node in the right subtree
+        return this.depth(node, root.right, depth + 1);
+    }
 }
 
 export default Tree;

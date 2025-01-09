@@ -59,5 +59,6 @@ console.log("***PRINT TREE IN POST ORDER (DEPTH-FIRST SEARCH***)");
 tree.postOrder(tree.printNodeData);
 
 console.log("");
-console.log("***PRINT HEIGHT OF A NODE***)");
+console.log("***PRINT HEIGHT AND DEPTH OF A NODE***)");
 console.log("Node's height: " + tree.height(67));
+console.log("Node's depth: " + tree.depth(6345));
