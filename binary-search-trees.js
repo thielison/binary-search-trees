@@ -1,5 +1,7 @@
 import sortWithoutDuplicates from "./unique-merge-sort.js";
 
+let nodeHeight = -1;
+
 class Node {
     constructor(data) {
         this.data = data;
@@ -252,6 +254,38 @@ class Tree {
     // Print node data
     printNodeData(node) {
         console.log(node.data);
+    }
+
+    // Returns the given node’s height
+    // Height of a specific node (distance from the node down to the deepest leaf)
+    heightUtil(node, root = this.root) {
+        // Base Case
+        if (root == null) {
+            return -1;
+        }
+
+        // Store the maximum height of
+        // the left and right subtree
+        let leftHeight = this.heightUtil(node, root.left);
+
+        let rightHeight = this.heightUtil(node, root.right);
+
+        // Update height of the current node
+        let answer = Math.max(leftHeight, rightHeight) + 1;
+
+        // If current node is the required node
+        if (root.data == node) {
+            // Update global variable
+            nodeHeight = answer;
+        }
+
+        return answer;
+    }
+
+    height(node) {
+        this.heightUtil(node);
+
+        return nodeHeight;
     }
 }
 

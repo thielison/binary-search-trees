@@ -57,3 +57,7 @@ console.log("");
 console.log("***PRINT TREE IN POST ORDER (DEPTH-FIRST SEARCH***)");
 // levelOrder() receives a callback -> (printNodeData()
 tree.postOrder(tree.printNodeData);
+
+console.log("");
+console.log("***PRINT HEIGHT OF A NODE***)");
+console.log("Node's height: " + tree.height(67));
