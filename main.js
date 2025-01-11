@@ -14,19 +14,19 @@ prettyPrintTree(tree.root);
 // Insert additional values into the initially balanced BST.
 // These insertions use standard BST logic and do not rebalance the tree,
 // so the structure may become progressively less balanced as you add values.
-// tree.insert(2);
-// tree.insert(6);
-// tree.insert(10);
-// tree.insert(11);
-// tree.insert(1234);
+tree.insert(2);
+tree.insert(6);
+tree.insert(10);
+tree.insert(11);
+tree.insert(1234);
 
 console.log("");
 console.log("***INSERTION OF NODES***");
 prettyPrintTree(tree.root);
 
 // Delete a node from the tree
-// tree.deleteItem(8);
-// tree.deleteItem(1234);
+tree.deleteItem(8);
+tree.deleteItem(1234);
 
 console.log("");
 console.log("***DELETION OF A NODE***");
@@ -40,23 +40,24 @@ tree.find(2);
 
 console.log("");
 console.log("***PRINT TREE IN LEVEL ORDER (BREADTH-FIRST SEARCH***)");
-// levelOrder() receives a callback -> (printNodeData()
-tree.levelOrder(tree.printNodeData);
+const levelOrderArr = tree.toArray("levelOrder");
+console.log(levelOrderArr);
 
 console.log("");
 console.log("***PRINT TREE IN PRE ORDER (DEPTH-FIRST SEARCH***)");
-// levelOrder() receives a callback -> (printNodeData()
-tree.preOrder(tree.printNodeData);
+
+const preOrderArray = tree.toArray("preOrder");
+console.log(preOrderArray);
 
 console.log("");
 console.log("***PRINT TREE IN ORDER (DEPTH-FIRST SEARCH***)");
-// levelOrder() receives a callback -> (printNodeData()
-tree.inOrder(tree.printNodeData);
+const inOrderArray = tree.toArray("inOrder");
+console.log(inOrderArray);
 
 console.log("");
 console.log("***PRINT TREE IN POST ORDER (DEPTH-FIRST SEARCH***)");
-// levelOrder() receives a callback -> (printNodeData()
-tree.postOrder(tree.printNodeData);
+const postOrderArray = tree.toArray("postOrder");
+console.log(postOrderArray);
 
 console.log("");
 console.log("***PRINT HEIGHT AND DEPTH OF A NODE***)");

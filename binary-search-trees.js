@@ -1,6 +1,7 @@
 import sortWithoutDuplicates from "./unique-merge-sort.js";
 
 let nodeHeight = -1;
+let treeData = [];
 
 class Node {
     constructor(data) {
@@ -251,11 +252,6 @@ class Tree {
         callback(currNode);
     }
 
-    // Print node data
-    printNodeData(node) {
-        console.log(node.data);
-    }
-
     // Helper function to height(node)
     // Updates global variable "nodeHeight"
     heightUtil(node, root = this.root) {
@@ -361,6 +357,47 @@ class Tree {
 
         // If the result is -1, the tree is unbalanced.
         return false;
+    }
+
+    toArray(order = "inOrder") {
+        const result = []; // Initialize an empty array to store the traversal result
+
+        // Define a callback function that pushes the current node's data into the result array
+        const cb = (node) => result.push(node.data);
+
+        // Switch statement to handle different traversal orders
+        switch (order) {
+            case "levelOrder":
+                // Perform a level-order (breadth-first) traversal
+                // and execute the callback for each node
+                this.levelOrder(cb);
+                break;
+
+            case "inOrder":
+                // Perform an in-order (left, root, right) traversal
+                // and execute the callback for each node
+                this.inOrder(cb);
+                break;
+
+            case "preOrder":
+                // Perform a pre-order (root, left, right) traversal
+                // and execute the callback for each node
+                this.preOrder(cb);
+                break;
+
+            case "postOrder":
+                // Perform a post-order (left, right, root) traversal
+                // and execute the callback for each node
+                this.postOrder(cb);
+                break;
+
+            default:
+                // If an invalid traversal order is specified,
+                // throw an error to inform the user
+                throw new Error("Invalid traversal order specified.");
+        }
+
+        return result; // Return the array containing the traversal result
     }
 }
 
