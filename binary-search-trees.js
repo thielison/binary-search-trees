@@ -313,6 +313,55 @@ class Tree {
         // Otherwise, recursively search for the node in the right subtree
         return this.depth(node, root.right, depth + 1);
     }
+
+    isBalancedUtil(currentNode) {
+        // Base case: If the current node is null, its height is 0 (considered balanced).
+        if (currentNode == null) {
+            return 0;
+        }
+
+        // Recursively check the height of the left subtree.
+        const leftSubtreeHeight = this.isBalancedUtil(currentNode.left);
+
+        // If the left subtree is unbalanced (returns -1), propagate this result up the tree.
+        if (leftSubtreeHeight == -1) {
+            return -1;
+        }
+
+        // Recursively check the height of the right subtree.
+        const rightSubtreeHeight = this.isBalancedUtil(currentNode.right);
+
+        // If the right subtree is unbalanced (returns -1), propagate this result up the tree.
+        if (rightSubtreeHeight == -1) {
+            return -1;
+        }
+
+        // Check if the height difference between left and right subtrees exceeds 1.
+        // If it does, the tree is unbalanced, so return -1.
+        if (Math.abs(leftSubtreeHeight - rightSubtreeHeight) > 1) {
+            return -1;
+        }
+
+        // If balanced, return the height of the current node (1 + max of left and right subtree heights).
+        return Math.max(leftSubtreeHeight, rightSubtreeHeight) + 1;
+    }
+
+    // Determines if the binary tree is balanced.
+    // A binary tree is balanced if the height difference between the left and right subtrees
+    // of every node is no more than 1. The function relies on the helper method isBalancedUtil.
+    // If isBalancedUtil returns -1, the tree is unbalanced. Otherwise, the tree is balanced.
+    isBalanced() {
+        // Call the helper function isBalancedUtil starting from the root node.
+        const returnValue = this.isBalancedUtil(this.root);
+
+        // If the result is not -1, the tree is balanced (helper method returned tree height).
+        if (returnValue !== -1) {
+            return true;
+        }
+
+        // If the result is -1, the tree is unbalanced.
+        return false;
+    }
 }
 
 export default Tree;

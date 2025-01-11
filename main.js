@@ -14,19 +14,19 @@ prettyPrintTree(tree.root);
 // Insert additional values into the initially balanced BST.
 // These insertions use standard BST logic and do not rebalance the tree,
 // so the structure may become progressively less balanced as you add values.
-tree.insert(2);
-tree.insert(6);
-tree.insert(10);
-tree.insert(11);
-tree.insert(1234);
+// tree.insert(2);
+// tree.insert(6);
+// tree.insert(10);
+// tree.insert(11);
+// tree.insert(1234);
 
 console.log("");
 console.log("***INSERTION OF NODES***");
 prettyPrintTree(tree.root);
 
 // Delete a node from the tree
-tree.deleteItem(8);
-tree.deleteItem(1234);
+// tree.deleteItem(8);
+// tree.deleteItem(1234);
 
 console.log("");
 console.log("***DELETION OF A NODE***");
@@ -62,3 +62,7 @@ console.log("");
 console.log("***PRINT HEIGHT AND DEPTH OF A NODE***)");
 console.log("Node's height: " + tree.height(67));
 console.log("Node's depth: " + tree.depth(6345));
+
+console.log("");
+console.log("***CHECK IF TREE IS BALANCED***)");
+console.log(tree.isBalanced());
