@@ -1,7 +1,6 @@
 import sortWithoutDuplicates from "./unique-merge-sort.js";
 
 let nodeHeight = -1;
-let treeData = [];
 
 class Node {
     constructor(data) {
@@ -357,6 +356,44 @@ class Tree {
 
         // If the result is -1, the tree is unbalanced.
         return false;
+    }
+
+    // Rebalance an unbalanced binary search tree
+    rebalance() {
+        // 1. If the root node is null, the tree is empty, and there's nothing to rebalance
+        if (!this.root) {
+            return { success: false, message: "Tree is empty, nothing to rebalance." };
+        }
+
+        // 2. If the tree is balanced, there is no need to perform any operation
+        if (this.isBalanced()) {
+            return { success: false, message: "Tree does not need rebalancing." };
+        }
+
+        // 3. Array to store the in-order traversal result
+        const result = [];
+
+        // 3.2 Perform in-order traversal to get a sorted list of all node values
+        const inOrderTraversal = (currNode) => {
+            // Base case: Stop recursion if the current node is null
+            if (currNode === null) {
+                return;
+            }
+
+            inOrderTraversal(currNode.left);
+            result.push(currNode.data);
+            inOrderTraversal(currNode.right);
+        };
+
+        // 3.1 Initiate in-order traversal starting from the root node
+        inOrderTraversal(this.root);
+
+        // 4. Rebuild the tree
+        // Use the sorted array from in-order traversal to construct a balanced binary search tree.
+        this.root = this.buildTree(result, 0, result.length - 1);
+
+        // 5. Indicate that the tree was successfully rebalanced.
+        return { success: true, message: "Tree was successfully rebalanced!" };
     }
 
     toArray(order = "inOrder") {

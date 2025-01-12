@@ -60,10 +60,15 @@ const postOrderArray = tree.toArray("postOrder");
 console.log(postOrderArray);
 
 console.log("");
-console.log("***PRINT HEIGHT AND DEPTH OF A NODE***)");
+console.log("***PRINT HEIGHT AND DEPTH OF A NODE***");
 console.log("Node's height: " + tree.height(67));
 console.log("Node's depth: " + tree.depth(6345));
 
 console.log("");
-console.log("***CHECK IF TREE IS BALANCED***)");
+console.log("***CHECK IF TREE IS BALANCED***");
 console.log(tree.isBalanced());
+
+console.log("");
+console.log("***REBALANCE TREE***");
+console.log(tree.rebalance());
+prettyPrintTree(tree.root);
