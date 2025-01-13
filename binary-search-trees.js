@@ -135,7 +135,7 @@ class Tree {
 
         // If the current node’s data matches the value, we found our node
         if (value === currNode.data) {
-            console.log(`Node with value ${value} was found:`);
+            console.log(`\nNode with value ${value} was found:`);
             console.log(currNode);
 
             return currNode;
