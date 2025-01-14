@@ -47,7 +47,7 @@ const getRandomInt = (min, max) => {
 
 // Function to handle user input from the menu
 function handleInput(choice) {
-    process.stdout.write("\x1Bc"); // Complete terminal reset (including scrollback) for a clean interface on each menu iteration
+    process.stdout.write("\x1Bc"); // Completely resets terminal (including scrollback) on each menu iteration
 
     switch (choice) {
         case "1": // Create a new binary search tree from a random array of numbers
@@ -158,8 +158,8 @@ function handleInput(choice) {
                 if (isNaN(value)) {
                     console.log("Invalid input. Please enter a numeric value.");
                 } else {
-                    const nodeHeight = tree.depth(value); // Calculate the node's depth
-                    console.log(`\nDepth of node ${value} is ${nodeHeight}`);
+                    const nodeDepth = tree.depth(value); // Calculate the node's depth
+                    console.log(`\nDepth of node ${value} is ${nodeDepth}`);
                 }
 
                 displayMenu(); // Redisplay the menu after calculation

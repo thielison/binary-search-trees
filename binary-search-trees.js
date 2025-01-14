@@ -99,7 +99,7 @@ class Tree {
         } else {
             // 3. When value === currNode.data, we’ve found the node that needs deletion
 
-            // a. Node with 0 child = no children at all (a left node) OR node with only 1 child (left or right):
+            // a. Node with 0 child = no children at all (a leaf node) OR node with only 1 child (left or right):
             //    (1) No left child => replace with the right child (may be null or actual node)
             if (currNode.left === null) {
                 return currNode.right;
